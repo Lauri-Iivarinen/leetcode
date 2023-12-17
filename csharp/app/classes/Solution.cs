@@ -57,5 +57,42 @@ public class Solution {
         }
         return openBrackets.Count == 0;
     }
+
+    public int RemoveDuplicates(int[] nums) {
+        return 0;
+    }
+
+    public int StrStr(string haystack, string needle) {
+        return haystack.IndexOf(needle);
+    }
+
+    public int[] PlusOne(int[] digits) {
+        
+        if(digits[digits.Length-1] != 9){
+            digits[digits.Length-1] = digits[digits.Length-1]+1;
+        }else{
+            int i = digits.Length-1;
+            while (i > 0 && digits[i] == 9){
+                digits[i] = 0;
+                i--;
+            }
+
+            if (i == 0 && digits[0] == 9){
+                //add new
+                Array.Resize(ref digits, digits.Length + 1);
+                for (int ind = digits.Length-2; ind > 0; ind--){
+                    digits[ind+1] = digits[ind];
+                }
+                digits[0] = 1;
+                
+            }else{
+                digits[i] += 1; 
+            }
+        }
+        
+        return digits;
+    }
+
+//Do not cut here
 }
 }
